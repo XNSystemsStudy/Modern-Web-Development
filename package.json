@@ -1,0 +1,22 @@
+{
+  "name": "modern-web-development",
+  "version": "1.0.0",
+  "description": "TypeScript, Angular2 and more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XNSystemsStudy/Modern-Web-Development.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XNSystemsStudy/Modern-Web-Development/issues"
+  },
+  "homepage": "https://github.com/XNSystemsStudy/Modern-Web-Development#readme",
+  "devDependencies": {
+    "typescript": "^2.1.4"
+  }
+}
