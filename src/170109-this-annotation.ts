@@ -4,7 +4,7 @@ console.log('---- Ex 1');
         suits: ["hearts", "spades", "clubs", "diamonds"],
         cards: Array(52),
         createCardPicker: function () {
-            return function () {
+            return function (this:typeof deck) {
                 let pickedCard = Math.floor(Math.random() * 52);
                 let pickedSuit = Math.floor(pickedCard / 13);
 
@@ -24,10 +24,16 @@ console.log('---- Ex 1');
 
 console.log('---- Ex 2');
 (function() {
-    let deck = {
+    interface Deck {
+        suits: string[];
+        cards: any[];
+        cardPicker(this:Deck): {suit:string, card:number};
+    }
+
+    let deck:Deck = {
         suits: ["hearts", "spades", "clubs", "diamonds"],
         cards: Array(52),
-        cardPicker: function () {
+        cardPicker: function (this:Deck) {
             let pickedCard = Math.floor(Math.random() * 52);
             let pickedSuit = Math.floor(pickedCard / 13);
 
@@ -45,10 +51,16 @@ console.log('---- Ex 2');
 
 console.log('---- Ex 3');
 (function() {
-    let deck = {
+    interface Deck {
+        suits: string[];
+        cards: any[];
+        cardPicker(this:Deck): {suit:string, card:number};
+    }
+
+    let deck:Deck = {
         suits: ["hearts", "spades", "clubs", "diamonds"],
         cards: Array(52),
-        cardPicker: function () {
+        cardPicker: function (this:Deck) {
             let pickedCard = Math.floor(Math.random() * 52);
             let pickedSuit = Math.floor(pickedCard / 13);
 
@@ -64,6 +76,7 @@ console.log('---- Ex 3');
     }
     catch(e) { console.log('DEAD'); }
 })();
+
 
 console.log('---- Ex 4');
 (function() {
@@ -88,10 +101,16 @@ console.log('---- Ex 4');
 
 console.log('---- Ex 5');
 (function() {
-    let deck = {
+    interface Deck {
+        suits: string[];
+        cards: any[];
+        createCardPicker(this:Deck): () => {suit:string, card:number};
+    }
+
+    let deck:Deck = {
         suits: ["hearts", "spades", "clubs", "diamonds"],
         cards: Array(52),
-        createCardPicker: function () {
+        createCardPicker: function (this:Deck) {
             let self = this;
             return function () {
                 let pickedCard = Math.floor(Math.random() * 52);
@@ -113,10 +132,16 @@ console.log('---- Ex 5');
 
 console.log('---- Ex 6');
 (function() {
-    let deck = {
+    interface Deck {
+        suits: string[];
+        cards: any[];
+        createCardPicker(this:Deck): () => {suit:string, card:number};
+    }
+
+    let deck: Deck = {
         suits: ["hearts", "spades", "clubs", "diamonds"],
         cards: Array(52),
-        createCardPicker: function () {
+        createCardPicker: function (this: Deck) {
             return () => {
                 let pickedCard = Math.floor(Math.random() * 52);
                 let pickedSuit = Math.floor(pickedCard / 13);
