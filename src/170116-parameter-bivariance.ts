@@ -5,6 +5,9 @@ class Shape {
     drawShape() {
         console.log("Shape::drawShape()");
     }
+    draw() {
+        this.drawShape();
+    }
 }
 
 class Circle extends Shape {
@@ -13,6 +16,9 @@ class Circle extends Shape {
     }
     drawCircle() {
         console.log("Circle::drawCircle()");
+    }
+    draw() {
+        this.drawCircle();
     }
 }
 
@@ -41,14 +47,21 @@ let shape = new Shape(100, 100);
 let circle = new Circle(10);
 
 drawShape(shape);
-drawCircle(shape);
+drawCircle(shape); // NOT OK
 drawShape(circle);
 drawCircle(circle);
 
 delayDraw(1000, shape, drawShape);
-delayDraw(2000, shape, drawCircle); // ????
+delayDraw(2000, shape, drawCircle); // OK ????
 delayDraw(3000, circle, drawShape);
 delayDraw(4000, circle, drawCircle);
+
+function delayDrawShape(delay: number, shape: Shape) {
+    setTimeout(() => { shape.draw() }, delay);
+}
+
+delayDrawShape(5000, shape);
+delayDrawShape(6000, circle);
 
 })();
 
