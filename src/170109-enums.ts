@@ -73,6 +73,6 @@ declare enum Enum {
     C = "123".length
 }
 
-// unassigned B ???
+// unassigned B ?: hover over B
 let eD = [EnumD.A, EnumD.B, EnumD.C];
 let e = [Enum.A, Enum.B, Enum.C];
