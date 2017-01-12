@@ -61,12 +61,18 @@
     let nameOfB = Enum[Enum.B]; // "A"
 })();
 
-declare enum Enum {
+enum EnumD {
     A = 1,
-    B = "123".length,
-    C
+    B,
+    C = "123".length
 }
 
+declare enum Enum {
+    A = 1,
+    B,
+    C = "123".length
+}
+
+// unassigned B ???
+let eD = [EnumD.A, EnumD.B, EnumD.C];
 let e = [Enum.A, Enum.B, Enum.C];
-let enumA = Enum[Enum.A];
-let enumB = Enum[Enum.B];
