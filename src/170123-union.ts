@@ -14,7 +14,7 @@
         layEggs(): any;
     }
 
-    function getSmallPet(): Fish | Bird {
+    function getSmallPet(): Fish | Bird | Car{
         // ...
         return {
             swim: () => { },
@@ -23,20 +23,27 @@
     }
 
     let pet = getSmallPet();
-    pet.layEggs(); // okay
-    (<Fish>pet).swim();  // errors
+    (<Fish>pet).layEggs(); // okay
+    pet.swim();  // errors
+    (<Fish>pet).swim();  // okay 
 
-    //function isFish(pet: Fish | Bird): boolean {
-    function isFish(pet: Fish | Bird): pet is Fish {
+    //function isFish(pet: Fish | Bird | Car): boolean {
+    function isFish(pet: Fish | Bird | Car): pet is Fish {
         return (<Fish>pet).swim !== undefined;
 
+    }
+    function isBird(pet: Fish | Bird | Car): pet is Bird {
+        return (<Bird>pet).fly !== undefined;
     }
     //if (typeof pet === 'Fish') {
     if (isFish(pet)) {
         pet.swim();
     }
-    else {
+    else if (isBird(pet)) {
         pet.fly();
+    }
+    else {
+        pet.drive();
     }
 
     //
@@ -73,7 +80,7 @@
 (()=>{
     function broken(name: string | null): string {
         function postfix(epithet: string) {
-            return name!.charAt(0) + '.  the ' + epithet; // error, 'name' is possibly null
+            return name.charAt(0) + '.  the ' + epithet; // error, 'name' is possibly null
         }
         name = name || "Bob";
         return postfix("great");

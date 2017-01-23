@@ -15,7 +15,7 @@ declare function interfaced(arg: Interface): Interface;
             this.value += operand;
             return this;
         }
-        public multiply(operand: number) {
+        public multiply(operand: number): this {
             this.value *= operand;
             return this;
         }
@@ -149,5 +149,29 @@ declare function interfaced(arg: Interface): Interface;
     });  
 
     console.dir(lengths2);
+})();
+
+(()=>{
+    type LinkedList<T> = T & { next: LinkedList<T> };
+
+    interface Person {
+        name: string;
+    }
+
+    var end: LinkedList<Person> = null;
+
+    var kim: LinkedList<Person> = {
+        name: 'kim',
+        next: end
+    };
+    var lee: LinkedList<Person> = {
+        name: 'lee',
+        next: kim
+    };
+
+    var s = lee.name;
+    var s = lee.next.name;
+    var s = lee.next.next.name;
+    var s = lee.next.next.next.name;
 })();
 
