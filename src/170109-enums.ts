@@ -58,7 +58,7 @@
     }
     let a = [Enum.A, Enum.B];
     let nameOfA = Enum[Enum.A]; // "B"
-    let nameOfB = Enum[Enum.B]; // "A"
+    let nameOfB = Enum[Enum.B]; // "B"
 })();
 
 enum EnumD {

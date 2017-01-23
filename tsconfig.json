@@ -7,7 +7,8 @@
         "sourceMap": false,
         "outDir": "build",
         "listFiles": true,
-        "listEmittedFiles": true
+        "listEmittedFiles": true,
+        "strictNullChecks": true
     },
     "include": [
         "src/**/*"
